@@ -28,7 +28,15 @@ steps:
     name: CopyFiles
     command: cp -a /tmp/site/public/. /var/www/html/
     runAs: root
+  - stepType: Command 
+    name: OpenFirewallPort
+    command: firewall-cmd --zone=public --permanent --add-port=80/tcp
+    runAs: root
     timeoutInSeconds: 300
+  - stepType: Command 
+    name: ReloadFirewall
+    command: firewall-cmd --reload
+    runAs: root
   - stepType: Command 
     name: CopyFiles
     command: chmod -R u=rwx,go=rx /var/www/html
