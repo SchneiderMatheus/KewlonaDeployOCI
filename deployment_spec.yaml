@@ -16,7 +16,7 @@ steps:
     timeoutInSeconds: 300
   - stepType: Command 
     name: HTTPD_install
-    command: yum install hhtpd -y
+    command: yum install httpd -y
     runAs: root
     timeoutInSeconds: 300
   - stepType: Command 
