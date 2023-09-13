@@ -7,7 +7,7 @@ timeoutInSeconds:
 files:  
   - source: /
     destination: /tmp/site/                              
-steps:                              
+#steps:                              
 # This section is to define the scripts that each step runs on the instance after file copy.
   #- stepType: Command 
   #  name: YumUPDATE
@@ -24,21 +24,21 @@ steps:
   #  command: service httpd start
   #  runAs: root
   #  timeoutInSeconds: 300
-  - stepType: Command 
-    name: CopyFiles
-    command: cp -a /tmp/site/public/. /var/www/html/
-    runAs: root
-  - stepType: Command 
-    name: OpenFirewallPort
-    command: firewall-cmd --zone=public --permanent --add-port=80/tcp
-    runAs: root
-    timeoutInSeconds: 300
-  - stepType: Command 
-    name: ReloadFirewall
-    command: firewall-cmd --reload
-    runAs: root
-  - stepType: Command 
-    name: CopyFiles
-    command: chmod -R u=rwx,go=rx /var/www/html
-    runAs: root
-    timeoutInSeconds: 300
+  #- stepType: Command 
+  #  name: CopyFiles
+  #  command: cp -a /tmp/site/public/. /var/www/html/
+  #  runAs: root
+  #- stepType: Command 
+  #  name: OpenFirewallPort
+  #  command: firewall-cmd --zone=public --permanent --add-port=80/tcp
+  #  runAs: root
+  #  timeoutInSeconds: 300
+  #- stepType: Command 
+  #  name: ReloadFirewall
+  #  command: firewall-cmd --reload
+  #  runAs: root
+  #- stepType: Command 
+  #  name: CopyFiles
+  #  command: chmod -R u=rwx,go=rx /var/www/html
+  #  runAs: root
+  #  timeoutInSeconds: 300
